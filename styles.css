@@ -1,0 +1,255 @@
+/* Base styles */
+:root {
+    --primary-bg: white;
+    --secondary-bg: #f9fafb;
+    --primary-text: #1f2937;
+    --secondary-text: #4b5563;
+    --accent-color: #374151;
+    --agent-color: #fbbf24;
+    --environment-color: #60a5fa;
+    --reward-color: #10b981;
+    --state-color: #f97316;
+    --action-color: #ec4899;
+    --policy-color: #8b5cf6;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    line-height: 1.6;
+    color: var(--primary-text);
+    background-color: var(--primary-bg);
+}
+
+.font-geist-mono {
+    font-family: 'Geist Mono', monospace;
+}
+
+/* Form elements */
+input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 6px;
+    background: #e5e7eb;
+    border-radius: 3px;
+    outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    background: #1f2937;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: background-color 0.2s;
+}
+
+input[type="range"]::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    background: #1f2937;
+    cursor: pointer;
+    border-radius: 50%;
+    border: none;
+    transition: background-color 0.2s;
+}
+
+input[type="range"]:hover::-webkit-slider-thumb {
+    background: #111827;
+}
+
+input[type="range"]:hover::-moz-range-thumb {
+    background: #111827;
+}
+
+/* Animation containers */
+#hero-animation, #rl-loop-animation, #q-learning-animation, #maze-game {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Maze game styles */
+.maze-container {
+    display: grid;
+    width: 100%;
+    height: 100%;
+    gap: 2px;
+}
+
+.maze-cell {
+    background-color: white;
+    border: 1px solid #e5e7eb;
+    position: relative;
+    transition: background-color 0.3s;
+}
+
+.maze-agent {
+    position: absolute;
+    width: 70%;
+    height: 70%;
+    background-color: #fbbf24;
+    border-radius: 50%;
+    top: 15%;
+    left: 15%;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.maze-goal {
+    background-color: #10b981;
+}
+
+.maze-wall {
+    background-color: #4b5563;
+}
+
+.maze-visited {
+    background-color: #f1f5f9;
+}
+
+.q-value {
+    position: absolute;
+    font-size: 9px;
+    color: #4b5563;
+    font-weight: 600;
+    pointer-events: none;
+}
+
+.q-up {
+    top: 2px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.q-right {
+    right: 2px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.q-down {
+    bottom: 2px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.q-left {
+    left: 2px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* SVG icon styles */
+.agent-icon {
+    fill: var(--agent-color);
+    transition: transform 0.5s, fill 0.3s;
+}
+
+.environment-icon {
+    fill: var(--environment-color);
+    transition: transform 0.5s, fill 0.3s;
+}
+
+.reward-icon {
+    fill: var(--reward-color);
+    transition: transform 0.5s, fill 0.3s;
+}
+
+.state-icon {
+    fill: var(--state-color);
+    transition: transform 0.5s, fill 0.3s;
+}
+
+.action-icon {
+    color: var(--action-color);
+    transition: transform 0.5s, color 0.3s;
+}
+
+.policy-icon {
+    fill: var(--policy-color);
+    transition: transform 0.5s, fill 0.3s;
+}
+
+/* Q-learning animation */
+.grid-world {
+    display: grid;
+    gap: 4px;
+}
+
+.grid-cell {
+    background: white;
+    border: 1px solid #e5e7eb;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
+
+.grid-agent {
+    position: absolute;
+    width: 70%;
+    height: 70%;
+    background-color: #fbbf24;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.grid-goal {
+    background-color: #10b981;
+}
+
+/* Q-table styles */
+.q-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+.q-table th {
+    background-color: #f3f4f6;
+    font-weight: 600;
+    padding: 8px;
+    text-align: center;
+    border: 1px solid #e5e7eb;
+}
+
+.q-table td {
+    padding: 6px;
+    text-align: center;
+    border: 1px solid #e5e7eb;
+    transition: background-color 0.3s;
+}
+
+.q-table-highlight {
+    background-color: #fef3c7;
+}
+
+/* RL loop animation */
+.rl-loop-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.loop-element {
+    position: absolute;
+    transition: all 0.5s ease-in-out;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+    
+    .q-value {
+        font-size: 7px;
+    }
+}

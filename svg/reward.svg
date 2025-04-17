@@ -1,0 +1,7 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <polygon points="50,10 61,38 90,38 67,56 75,85 50,70 25,85 33,56 10,38 39,38" fill="#10b981" class="reward-icon"/>
+  <circle cx="20" cy="20" r="3" fill="#10b981" class="reward-icon"/>
+  <circle cx="80" cy="20" r="3" fill="#10b981" class="reward-icon"/>
+  <circle cx="80" cy="80" r="3" fill="#10b981" class="reward-icon"/>
+  <circle cx="20" cy="80" r="3" fill="#10b981" class="reward-icon"/>
+</svg>

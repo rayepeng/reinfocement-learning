@@ -1,0 +1,58 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <path d="M50,15 C65,10 80,17.5 82.5,32.5 C85,45 80,55 70,60 C80,65 85,75 80,87.5 C75,95 60,97.5 50,95 C40,97.5 25,95 20,87.5 C15,75 20,65 30,60 C20,55 15,45 17.5,32.5 C20,17.5 35,10 50,15" fill="none" stroke="#374151" stroke-width="2"/>
+
+  <!-- Neurons -->
+  <circle cx="35" cy="25" r="3" fill="#fbbf24"/>
+  <circle cx="45" cy="20" r="3" fill="#fbbf24"/>
+  <circle cx="55" cy="22" r="3" fill="#cbd5e1"/>
+  <circle cx="65" cy="27" r="3" fill="#cbd5e1"/>
+  
+  <circle cx="30" cy="37" r="3" fill="#cbd5e1"/>
+  <circle cx="40" cy="35" r="3" fill="#fbbf24"/>
+  <circle cx="50" cy="32" r="3" fill="#cbd5e1"/>
+  <circle cx="60" cy="35" r="3" fill="#fbbf24"/>
+  <circle cx="70" cy="40" r="3" fill="#cbd5e1"/>
+  
+  <circle cx="35" cy="50" r="3" fill="#cbd5e1"/>
+  <circle cx="45" cy="47" r="3" fill="#cbd5e1"/>
+  <circle cx="55" cy="47" r="3" fill="#fbbf24"/>
+  <circle cx="65" cy="50" r="3" fill="#cbd5e1"/>
+  
+  <circle cx="30" cy="62" r="3" fill="#fbbf24"/>
+  <circle cx="40" cy="60" r="3" fill="#cbd5e1"/>
+  <circle cx="50" cy="62" r="3" fill="#cbd5e1"/>
+  <circle cx="60" cy="60" r="3" fill="#fbbf24"/>
+  <circle cx="70" cy="62" r="3" fill="#cbd5e1"/>
+  
+  <circle cx="35" cy="75" r="3" fill="#cbd5e1"/>
+  <circle cx="45" cy="77" r="3" fill="#fbbf24"/>
+  <circle cx="55" cy="80" r="3" fill="#cbd5e1"/>
+  <circle cx="65" cy="77" r="3" fill="#cbd5e1"/>
+  
+  <!-- Connections -->
+  <line x1="35" y1="25" x2="45" y2="20" stroke="#fbbf24" stroke-width="1"/>
+  <line x1="45" y1="20" x2="55" y2="22" stroke="#e2e8f0" stroke-width="1"/>
+  <line x1="55" y1="22" x2="65" y2="27" stroke="#e2e8f0" stroke-width="1"/>
+  
+  <line x1="35" y1="25" x2="40" y2="35" stroke="#fbbf24" stroke-width="1"/>
+  <line x1="45" y1="20" x2="40" y2="35" stroke="#fbbf24" stroke-width="1"/>
+  <line x1="40" y1="35" x2="50" y2="32" stroke="#e2e8f0" stroke-width="1"/>
+  <line x1="50" y1="32" x2="60" y2="35" stroke="#fbbf24" stroke-width="1"/>
+  <line x1="60" y1="35" x2="55" y2="22" stroke="#e2e8f0" stroke-width="1"/>
+  <line x1="60" y1="35" x2="70" y2="40" stroke="#e2e8f0" stroke-width="1"/>
+  
+  <line x1="30" y1="37" x2="35" y2="50" stroke="#e2e8f0" stroke-width="1"/>
+  <line x1="40" y1="35" x2="45" y2="47" stroke="#e2e8f0" stroke-width="1"/>
+  <line x1="50" y1="32" x2="55" y2="47" stroke="#fbbf24" stroke-width="1"/>
+  <line x1="60" y1="35" x2="65" y2="50" stroke="#e2e8f0" stroke-width="1"/>
+  
+  <line x1="35" y1="50" x2="30" y2="62" stroke="#fbbf24" stroke-width="1"/>
+  <line x1="45" y1="47" x2="40" y2="60" stroke="#e2e8f0" stroke-width="1"/>
+  <line x1="55" y1="47" x2="50" y2="62" stroke="#e2e8f0" stroke-width="1"/>
+  <line x1="65" y1="50" x2="60" y2="60" stroke="#fbbf24" stroke-width="1"/>
+  
+  <line x1="30" y1="62" x2="35" y2="75" stroke="#e2e8f0" stroke-width="1"/>
+  <line x1="40" y1="60" x2="45" y2="77" stroke="#fbbf24" stroke-width="1"/>
+  <line x1="50" y1="62" x2="55" y2="80" stroke="#e2e8f0" stroke-width="1"/>
+  <line x1="60" y1="60" x2="65" y2="77" stroke="#e2e8f0" stroke-width="1"/>
+</svg>

@@ -1,0 +1,16 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <path d="M 20,30 L 50,30 L 50,50 L 80,50 L 80,70 L 50,70 L 50,90 L 20,90 L 20,70 L 10,70 L 10,50 L 20,50 Z" fill="none" stroke="#8b5cf6" stroke-width="3" class="policy-icon"/>
+  <circle cx="20" cy="30" r="4" fill="#8b5cf6" class="policy-icon"/>
+  <circle cx="50" cy="30" r="4" fill="#8b5cf6" class="policy-icon"/>
+  <circle cx="50" cy="50" r="4" fill="#8b5cf6" class="policy-icon"/>
+  <circle cx="80" cy="50" r="4" fill="#8b5cf6" class="policy-icon"/>
+  <circle cx="80" cy="70" r="4" fill="#8b5cf6" class="policy-icon"/>
+  <circle cx="50" cy="70" r="4" fill="#8b5cf6" class="policy-icon"/>
+  <circle cx="50" cy="90" r="4" fill="#8b5cf6" class="policy-icon"/>
+  <circle cx="20" cy="90" r="4" fill="#8b5cf6" class="policy-icon"/>
+  <circle cx="20" cy="70" r="4" fill="#8b5cf6" class="policy-icon"/>
+  <circle cx="10" cy="70" r="4" fill="#8b5cf6" class="policy-icon"/>
+  <circle cx="10" cy="50" r="4" fill="#8b5cf6" class="policy-icon"/>
+  <circle cx="20" cy="50" r="4" fill="#8b5cf6" class="policy-icon"/>
+  <polygon points="35,50 65,40 65,60" fill="#8b5cf6" class="policy-icon"/>
+</svg>

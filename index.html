@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>强化学习入门 - 从零开始的智能之旅</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-white text-gray-800 font-sans">
+    <header class="bg-black text-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <h1 class="text-xl font-bold">强化学习探索之旅</h1>
+                <nav class="hidden md:block">
+                    <ul class="flex space-x-6">
+                        <li><a href="#intro" class="hover:text-gray-300 transition">简介</a></li>
+                        <li><a href="#basics" class="hover:text-gray-300 transition">基础概念</a></li>
+                        <li><a href="#learning-process" class="hover:text-gray-300 transition">学习过程</a></li>
+                        <li><a href="#algorithm" class="hover:text-gray-300 transition">算法解析</a></li>
+                        <li><a href="#game" class="hover:text-gray-300 transition">互动游戏</a></li>
+                        <li><a href="#applications" class="hover:text-gray-300 transition">现实应用</a></li>
+                    </ul>
+                </nav>
+                <button id="menu-toggle" class="md:hidden text-white">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-gray-900">
+            <div class="container mx-auto px-4 py-2">
+                <ul class="space-y-2">
+                    <li><a href="#intro" class="block py-2 hover:text-gray-300 transition">简介</a></li>
+                    <li><a href="#basics" class="block py-2 hover:text-gray-300 transition">基础概念</a></li>
+                    <li><a href="#learning-process" class="block py-2 hover:text-gray-300 transition">学习过程</a></li>
+                    <li><a href="#algorithm" class="block py-2 hover:text-gray-300 transition">算法解析</a></li>
+                    <li><a href="#game" class="block py-2 hover:text-gray-300 transition">互动游戏</a></li>
+                    <li><a href="#applications" class="block py-2 hover:text-gray-300 transition">现实应用</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="py-16 bg-gradient-to-r from-gray-100 to-gray-200">
+            <div class="container mx-auto px-4">
+                <div class="flex flex-col md:flex-row items-center">
+                    <div class="md:w-1/2 mb-8 md:mb-0">
+                        <h2 class="text-4xl font-bold mb-4">强化学习：机器的"试错"之旅</h2>
+                        <p class="text-xl mb-6">就像我们通过不断尝试与反馈学习生活技能一样，人工智能也有类似的学习方式</p>
+                        <a href="#intro" class="bg-black text-white px-6 py-3 rounded-md hover:bg-gray-800 transition shadow-md inline-block">开始探索</a>
+                    </div>
+                    <div class="md:w-1/2 flex justify-center">
+                        <div id="hero-animation" class="w-80 h-80 bg-white rounded-full shadow-lg flex items-center justify-center">
+                            <!-- Hero animation will be inserted here by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Introduction Section -->
+        <section id="intro" class="py-16 bg-white">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold mb-8 text-center">什么是强化学习？</h2>
+                <div class="max-w-3xl mx-auto">
+                    <p class="text-lg mb-6">
+                        想象一下，你正在教一只小狗学习"坐下"这个动作。每当小狗正确地坐下时，你会给它一块小饼干作为奖励。慢慢地，小狗会明白坐下这个动作能带来美味的饼干，它就会更频繁地坐下。
+                    </p>
+                    <p class="text-lg mb-6">
+                        <strong>强化学习</strong>的原理与此类似。一个计算机程序（称为"智能体"）通过与环境互动，根据行动的结果获得奖励或惩罚。通过大量的尝试和错误，它逐渐学会了能获得最大奖励的策略。
+                    </p>
+                    
+                    <div class="mt-10 bg-gray-100 rounded-lg p-6">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <i data-lucide="lightbulb" class="w-6 h-6 text-yellow-500"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-xl font-semibold mb-2">有趣的事实</h3>
+                                <p class="text-lg">
+                                    2016年，一个使用强化学习的AI程序AlphaGo击败了世界围棋冠军李世石，这被认为是人工智能历史上的里程碑事件。在此之前，许多专家认为要让计算机掌握围棋至少还需要十年时间！
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Basic Concepts Section -->
+        <section id="basics" class="py-16 bg-gray-50">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold mb-8 text-center">强化学习的基本构成</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                    <div class="bg-white rounded-lg shadow-sm p-6 flex flex-col items-center text-center transform transition-transform hover:translate-y-[-5px]">
+                        <div class="w-24 h-24 mb-4 flex items-center justify-center">
+                            <img src="svg/agent.svg" alt="智能体" class="w-full h-full object-contain">
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">智能体 (Agent)</h3>
+                        <p>学习者和决策者，可以是游戏中的角色、机器人或任何能够采取行动的实体。它会根据当前状态选择一个行动。</p>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg shadow-sm p-6 flex flex-col items-center text-center transform transition-transform hover:translate-y-[-5px]">
+                        <div class="w-24 h-24 mb-4 flex items-center justify-center">
+                            <img src="svg/environment.svg" alt="环境" class="w-full h-full object-contain">
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">环境 (Environment)</h3>
+                        <p>智能体互动的世界，可以是游戏、模拟系统或现实世界。环境接收智能体的行动，并提供新的状态和奖励。</p>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg shadow-sm p-6 flex flex-col items-center text-center transform transition-transform hover:translate-y-[-5px]">
+                        <div class="w-24 h-24 mb-4 flex items-center justify-center">
+                            <img src="svg/state.svg" alt="状态" class="w-full h-full object-contain">
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">状态 (State)</h3>
+                        <p>环境的当前情况，对智能体可见。例如，在一个游戏中，状态可能包括所有棋子的位置或角色的位置。</p>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg shadow-sm p-6 flex flex-col items-center text-center transform transition-transform hover:translate-y-[-5px]">
+                        <div class="w-24 h-24 mb-4 flex items-center justify-center">
+                            <svg viewBox="0 0 100 100" class="action-icon">
+                                <circle cx="50" cy="50" r="40" fill="currentColor" fill-opacity="0.2" stroke="currentColor" stroke-width="3"></circle>
+                                <path d="M 30,50 L 70,50 M 60,40 L 70,50 L 60,60" stroke="currentColor" stroke-width="4" fill="none" stroke-linecap="round"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">行动 (Action)</h3>
+                        <p>智能体可以执行的操作。例如，在迷宫游戏中，行动可能是上、下、左、右移动。</p>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg shadow-sm p-6 flex flex-col items-center text-center transform transition-transform hover:translate-y-[-5px]">
+                        <div class="w-24 h-24 mb-4 flex items-center justify-center">
+                            <img src="svg/reward.svg" alt="奖励" class="w-full h-full object-contain">
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">奖励 (Reward)</h3>
+                        <p>环境给予智能体的反馈信号。奖励可以是正面的（鼓励某种行为）或负面的（阻止某种行为）。</p>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg shadow-sm p-6 flex flex-col items-center text-center transform transition-transform hover:translate-y-[-5px]">
+                        <div class="w-24 h-24 mb-4 flex items-center justify-center">
+                            <img src="svg/policy.svg" alt="策略" class="w-full h-full object-contain">
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">策略 (Policy)</h3>
+                        <p>智能体用来决定在每个状态下采取什么行动的规则。策略就像是智能体的"行动指南"。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Learning Process Section -->
+        <section id="learning-process" class="py-16 bg-white">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold mb-8 text-center">强化学习过程</h2>
+                
+                <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-sm p-8">
+                    <div id="rl-loop-animation" class="w-full h-64 mb-8">
+                        <!-- RL loop animation will be inserted here by JavaScript -->
+                    </div>
+                    
+                    <div class="space-y-4 text-lg">
+                        <div class="flex">
+                            <div class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-black text-white font-semibold">1</div>
+                            <div class="ml-4">
+                                <p><strong>观察：</strong>智能体观察当前环境状态。</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex">
+                            <div class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-black text-white font-semibold">2</div>
+                            <div class="ml-4">
+                                <p><strong>决策：</strong>根据观察到的状态，智能体基于当前策略选择一个行动。</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex">
+                            <div class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-black text-white font-semibold">3</div>
+                            <div class="ml-4">
+                                <p><strong>执行：</strong>智能体在环境中执行选择的行动。</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex">
+                            <div class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-black text-white font-semibold">4</div>
+                            <div class="ml-4">
+                                <p><strong>反馈：</strong>环境改变到新的状态，并给予智能体一个奖励或惩罚。</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex">
+                            <div class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-black text-white font-semibold">5</div>
+                            <div class="ml-4">
+                                <p><strong>学习：</strong>智能体根据获得的反馈更新自己的策略，以期在未来获得更多的奖励。</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex">
+                            <div class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-black text-white font-semibold">6</div>
+                            <div class="ml-4">
+                                <p><strong>循环：</strong>重复以上步骤，智能体不断优化自己的行为策略。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="max-w-3xl mx-auto mt-10">
+                    <div class="bg-gray-100 rounded-lg p-6">
+                        <h3 class="text-xl font-semibold mb-3">现实生活的例子</h3>
+                        <p class="text-lg">
+                            当孩子学习骑自行车时，他会尝试各种方法保持平衡（行动）。如果车子平稳前进，这是一种正面反馈（奖励）；如果摔倒了，这是一种负面反馈（惩罚）。通过反复尝试，孩子逐渐学会了平衡（策略），最终成功骑车。强化学习算法的工作方式与此类似！
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Algorithm Section -->
+        <section id="algorithm" class="py-16 bg-gray-50">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold mb-8 text-center">强化学习算法</h2>
+                
+                <div class="max-w-4xl mx-auto">
+                    <div class="bg-white rounded-lg shadow-sm overflow-hidden mb-12">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-semibold mb-4">Q-学习：经验价值表</h3>
+                            <p class="text-lg mb-4">
+                                想象你在玩一个陌生的游戏，不知道哪些行动会带来高分。一个直观的学习方法是，记录每一种状态下各种行动的"价值"，并随着游戏的进行不断更新这些价值。
+                            </p>
+                            <p class="text-lg mb-6">
+                                Q-学习正是这样工作的。它维护一个"经验价值表"（Q表），记录每个状态下各种行动的预期收益。智能体一开始对环境一无所知，但通过不断尝试和反馈，逐渐填充和优化这个表格，最终学会最优策略。
+                            </p>
+                            
+                            <div id="q-learning-animation" class="w-full h-80 bg-gray-100 rounded-lg p-4 relative">
+                                <!-- Q-learning animation will be inserted here by JavaScript -->
+                            </div>
+                            
+                            <div class="mt-6 text-lg">
+                                <p>在上面的动画中：</p>
+                                <ul class="list-disc list-inside mt-2 space-y-2">
+                                    <li>格子代表不同的状态</li>
+                                    <li>黄色圆圈是智能体</li>
+                                    <li>绿色格子是目标</li>
+                                    <li>每个格子上的数字是该状态下各个方向（上、右、下、左）行动的Q值</li>
+                                    <li>随着智能体的探索，Q值不断更新，最终引导智能体找到最短路径</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+                            <div class="p-6">
+                                <h3 class="text-xl font-semibold mb-3">探索与利用的平衡</h3>
+                                <p class="text-lg">
+                                    在强化学习中，智能体面临一个重要的选择：是继续探索新的可能性（尝试未知的行动），还是利用已知的经验（选择已知的最好行动）？
+                                </p>
+                                <p class="text-lg mt-3">
+                                    这就像你去一家有多种菜品的餐厅。你是点已经尝过且喜欢的菜（利用），还是尝试一道从未点过的新菜（探索）？好的算法需要在这两者之间取得平衡。
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+                            <div class="p-6">
+                                <h3 class="text-xl font-semibold mb-3">深度强化学习</h3>
+                                <p class="text-lg">
+                                    传统的强化学习在状态空间很大时变得困难（想象一个超大的Q表！）。深度强化学习结合了深度学习的强大能力，使用神经网络来估计Q值或直接学习策略。
+                                </p>
+                                <p class="text-lg mt-3">
+                                    这种方法使得强化学习可以处理更复杂的任务，比如从原始像素直接学习玩视频游戏或控制机器人。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Game Section -->
+        <section id="game" class="py-16 bg-white">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold mb-8 text-center">亲自体验：迷宫探索者</h2>
+                
+                <div class="max-w-5xl mx-auto">
+                    <p class="text-xl text-center mb-8">
+                        通过这个互动游戏，观察一个强化学习智能体如何学习走出迷宫，并尝试调整学习参数，看看会发生什么变化！
+                    </p>
+                    
+                    <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-semibold mb-4">Q-学习走迷宫</h3>
+                            <p class="text-lg mb-6">
+                                在这个迷宫中，智能体（黄色圆点）的目标是找到通往终点（绿色方格）的最短路径。黑色方块是墙壁，智能体无法穿越。
+                                通过Q-学习算法，智能体会逐渐学会最优路径。
+                            </p>
+                            
+                            <div class="flex flex-col md:flex-row gap-6">
+                                <div id="maze-game" class="w-full md:w-3/5 h-96 bg-gray-100 rounded-lg">
+                                    <!-- Maze game will be inserted here by JavaScript -->
+                                </div>
+                                
+                                <div class="w-full md:w-2/5">
+                                    <div class="mb-6">
+                                        <h4 class="text-lg font-semibold mb-3">控制面板</h4>
+                                        <div class="flex gap-4 mb-4">
+                                            <button id="start-button" class="bg-black text-white px-4 py-2 rounded-md hover:bg-gray-800 transition shadow-sm">开始学习</button>
+                                            <button id="reset-button" class="bg-gray-200 text-gray-800 px-4 py-2 rounded-md hover:bg-gray-300 transition shadow-sm">重置</button>
+                                        </div>
+                                    </div>
+                                    
+                                    <div>
+                                        <h4 class="text-lg font-semibold mb-3">学习参数</h4>
+                                        <div class="space-y-5">
+                                            <div>
+                                                <div class="flex justify-between mb-1">
+                                                    <label for="learning-rate">学习率</label>
+                                                    <span id="learning-rate-value">0.1</span>
+                                                </div>
+                                                <input type="range" id="learning-rate" min="0.01" max="1" step="0.01" value="0.1" class="w-full">
+                                                <p class="text-sm text-gray-600 mt-1">控制智能体更新知识的速度。高学习率意味着快速适应但可能不稳定。</p>
+                                            </div>
+                                            
+                                            <div>
+                                                <div class="flex justify-between mb-1">
+                                                    <label for="exploration-rate">探索率</label>
+                                                    <span id="exploration-rate-value">0.3</span>
+                                                </div>
+                                                <input type="range" id="exploration-rate" min="0" max="1" step="0.01" value="0.3" class="w-full">
+                                                <p class="text-sm text-gray-600 mt-1">控制智能体尝试新路径的概率。高探索率意味着更多尝试新路径。</p>
+                                            </div>
+                                            
+                                            <div>
+                                                <div class="flex justify-between mb-1">
+                                                    <label for="speed">速度</label>
+                                                    <span id="speed-value">正常</span>
+                                                </div>
+                                                <input type="range" id="speed" min="1" max="10" step="1" value="5" class="w-full">
+                                                <p class="text-sm text-gray-600 mt-1">控制模拟的速度。</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="mt-6 pt-6 border-t border-gray-200">
+                                        <div class="flex items-center justify-between mb-1">
+                                            <span>训练步数：</span>
+                                            <span id="step-count">0</span>
+                                        </div>
+                                        <div class="flex items-center justify-between">
+                                            <span>成功找到目标次数：</span>
+                                            <span id="success-count">0</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Applications Section -->
+        <section id="applications" class="py-16 bg-gray-50">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold mb-8 text-center">强化学习的现实应用</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                    <div class="bg-white rounded-lg shadow-sm p-6 flex flex-col items-center text-center">
+                        <div class="w-16 h-16 mb-4 text-gray-800">
+                            <i data-lucide="gamepad-2" class="w-full h-full"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">游戏AI</h3>
+                        <p>强化学习被用于开发能够玩复杂游戏的AI，如围棋、星际争霸、Dota 2等。这些AI通过自我对弈和试错，最终达到甚至超越人类专业选手的水平。</p>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg shadow-sm p-6 flex flex-col items-center text-center">
+                        <div class="w-16 h-16 mb-4 text-gray-800">
+                            <i data-lucide="car" class="w-full h-full"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">自动驾驶</h3>
+                        <p>自动驾驶汽车使用强化学习来处理复杂的驾驶场景，学习如何在各种交通条件下安全导航，包括变道、避障和遵守交通规则。</p>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg shadow-sm p-6 flex flex-col items-center text-center">
+                        <div class="w-16 h-16 mb-4 text-gray-800">
+                            <i data-lucide="robot" class="w-full h-full"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">机器人技术</h3>
+                        <p>工业和服务机器人使用强化学习来掌握复杂任务，如抓取不规则物体、行走和导航。这使得机器人能够适应不断变化的环境。</p>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg shadow-sm p-6 flex flex-col items-center text-center">
+                        <div class="w-16 h-16 mb-4 text-gray-800">
+                            <i data-lucide="line-chart" class="w-full h-full"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">金融交易</h3>
+                        <p>交易算法使用强化学习来分析市场并做出交易决策，学习如何在不同市场条件下优化投资组合和最大化回报。</p>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg shadow-sm p-6 flex flex-col items-center text-center">
+                        <div class="w-16 h-16 mb-4 text-gray-800">
+                            <i data-lucide="battery-charging" class="w-full h-full"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">能源优化</h3>
+                        <p>强化学习被用于优化电网管理、数据中心冷却系统和工厂能源使用，减少能源消耗并提高效率。</p>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg shadow-sm p-6 flex flex-col items-center text-center">
+                        <div class="w-16 h-16 mb-4 text-gray-800">
+                            <i data-lucide="stethoscope" class="w-full h-full"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">医疗健康</h3>
+                        <p>在医疗领域，强化学习被用于制定个性化治疗方案、优化药物剂量和辅助医疗诊断，提高治疗效果和患者护理质量。</p>
+                    </div>
+                </div>
+                
+                <div class="max-w-3xl mx-auto mt-12 bg-white rounded-lg shadow-sm p-6">
+                    <h3 class="text-xl font-semibold mb-4 text-center">未来展望</h3>
+                    <p class="text-lg text-center">
+                        随着算法和计算能力的不断进步，强化学习将在更多领域发挥作用，帮助解决从气候变化到个性化教育等各种复杂问题。
+                        这项技术正在帮助我们构建更智能、更自主的系统，这些系统能够通过体验学习并不断改进。
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <div class="mb-4 md:mb-0">
+                    <p class="text-sm">© 2023 强化学习探索之旅. 保留所有权利.</p>
+                </div>
+                <div>
+                    <p class="text-sm">Built with <a href="https://flowith.net" target="_blank" class="underline hover:text-gray-300 transition">Flowith Oracle</a>.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="animations.js"></script>
+    <script src="maze-game.js"></script>
+    
+    <script>
+        window.addEventListener("wheel", (e)=> {
+            const isPinching = e.ctrlKey
+            if(isPinching) e.preventDefault()
+        }, { passive: false })
+        
+        // Initialize Lucide icons
+        lucide.createIcons();
+    </script>
+</body>
+</html>
